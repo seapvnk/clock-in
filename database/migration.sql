@@ -1,4 +1,4 @@
-USE INNOUT;
+USE CLOCK_IN;
 
 DROP TABLE IF EXISTS working_hours, users;
 CREATE TABLE users (
