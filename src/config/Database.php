@@ -14,4 +14,12 @@ class Database
 
         return $conn;
     }
+
+    public static function query($sql)
+    {
+        $conn = self::getConnection();
+        $result = $conn->query($sql);
+        $conn->close();
+        return $result;
+    }
 }
