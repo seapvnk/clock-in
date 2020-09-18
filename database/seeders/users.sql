@@ -1,3 +1,5 @@
+USE CLOCK_IN;
+
 -- User seeders
 -- The password is que cryptographed key for string "a"
 INSERT INTO users (id, name, password, email, start_date, end_date, is_admin)
