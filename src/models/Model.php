@@ -30,6 +30,21 @@ class Model
         }
     }
 
+    public static function all($filters = [], $columns = '*')
+    {
+        $objects = [];
+        $result = static::select($filters);
+
+        if ($result) {
+            $class = get_called_class();
+            while ($row = $result->fetch_assoc()) {
+                array_push($objects, new $class($row));
+            }
+        }
+        
+        return $objects;
+    }
+
     public static function select($filters = [], $columns = '*')
     {
         $sql = "SELECT $columns FROM "
@@ -41,7 +56,7 @@ class Model
             return null;
         }
 
-        return $result
+        return $result;
     }
 
     private static function filters($filters)
