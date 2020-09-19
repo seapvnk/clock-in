@@ -34,8 +34,14 @@ class Model
     {
         $sql = "SELECT $columns FROM "
                 . static::$table
-                . ;
-        return $sql;
+                . static::filters($filters);
+
+        $result = Database::query($sql);
+        if ($result->num_rows === 0) {
+            return null;
+        }
+
+        return $result
     }
 
     private static function filters($filters)
@@ -45,13 +51,14 @@ class Model
             $sql .= "WHERE 1 = 1";
 
             foreach($filters as $column => $value) {
-                $sql .= " AND ${column} = " . static::getFormatedValue($value);
+                $sql .= " AND ${column} = " . static::format($value);
             }
         }
-        return $sql;
+
+       
     }
 
-    private static function getFormatedValue($value)
+    private static function format($value)
     {
         if (is_null($value)) {
             return "null";
