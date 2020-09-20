@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="card-footer" style="padding: 1rem">
+            <div class="card-footer text-right" style="padding: 1rem">
                 <button class="btn btn-lg btn-primary">Entrar</button>
             </div>
         
