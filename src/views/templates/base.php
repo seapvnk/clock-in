@@ -16,7 +16,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/now-ui-kit.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <?php if (isset($styles) && is_array($styles)): ?>
         <?php foreach ($styles as $style): ?>
