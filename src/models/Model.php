@@ -45,6 +45,14 @@ class Model
         return $objects;
     }
 
+    public static function one($filters = [], $columns = '*')
+    {
+        $class = get_called_class();
+        $result =  static::select($filters, $columns);
+
+        return $result? new $class($result->fetch_assoc()) : null;
+    }
+
     public static function select($filters = [], $columns = '*')
     {
         $sql = "SELECT $columns FROM "
