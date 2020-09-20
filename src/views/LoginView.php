@@ -1,6 +1,6 @@
 <?php
 
-class Login extends View
+class LoginView extends View
 {
     protected static $styles = ['login'];
     protected static $templates = ['login'];
