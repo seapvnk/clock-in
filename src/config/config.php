@@ -7,7 +7,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 define('APP_NAME', 'Clock-in!');
 define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
 define('VIEW_PATH', realpath(dirname(__FILE__) . '/../views'));
-define('EXCEPTION_PATH', realpath(dirname(__FILE__) . '/../exception'));
+define('EXCEPTION_PATH', realpath(dirname(__FILE__) . '/../exceptions'));
 define('CONTROLLER_PATH', realpath(dirname(__FILE__) . '/../controllers'));
 
 
