@@ -19,6 +19,7 @@
                         type="email" 
                         name="email" 
                         id="email"
+                        value="<?= $email ?>"
                         placeholder="Informe seu e-mail"
                         autofocus
                     >
