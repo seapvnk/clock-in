@@ -56,13 +56,14 @@ class Model
     public static function select($filters = [], $columns = '*')
     {
         $sql = "SELECT $columns FROM "
-                . static::$table
+                . static::$table . " "
                 . static::filters($filters);
 
         $result = Database::query($sql);
         if ($result->num_rows === 0) {
             return null;
         }
+
 
         return $result;
     }
@@ -78,7 +79,7 @@ class Model
             }
         }
 
-       
+       return $sql;
     }
 
     private static function format($value)
