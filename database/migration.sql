@@ -1,4 +1,6 @@
-USE CLOCK_IN;
+CREATE DATABASE clock_in;
+
+USE clock_in;
 
 DROP TABLE IF EXISTS working_hours, users;
 CREATE TABLE users (
