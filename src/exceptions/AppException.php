@@ -6,4 +6,10 @@ class AppException extends Exception
     {
         parent::__construct($message, $code, $previous);
     }
+
+    public function get($att)
+    {
+        return null;
+    }
+
 }

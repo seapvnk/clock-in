@@ -1,4 +1,7 @@
 <div class="container login-container">
+
+    <?php require_once TEMPLATE_PATH . "/messages.php" ?>
+
     <form action="" method="post">
         <div class="card login-card">
         
@@ -8,34 +11,40 @@
                     clock-in!
                 </h1>
             </div>
-
-    
+            
             <div class="card-body">
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
+                <label for="email">E-mail</label>
+                <div class="form-group <?= $errors['email']? 'has-danger': '' ?>">
                     <input
-                        class="form-control"
+                        class="form-control <?= $errors['email']? 'form-control-danger is-invalid': ''?>"
                         type="email" 
                         name="email" 
                         id="email"
-                        value="<?= $email ?>"
+                        value="<?= $email?? '' ?>"
                         placeholder="Informe seu e-mail"
                         autofocus
                     >
+                    <div class="invalid-feedback">
+                        <?= $errors['email']?? '' ?>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Senha</label>
+                <label for="password">Senha</label>
+                <div class="form-group <?= $errors['password']? 'has-danger': '' ?>">
                     <input
-                        class="form-control"
+                        class="form-control <?= $errors['password']? 'form-control-danger is-invalid': '' ?>"
                         type="password" 
                         name="password" 
                         id="password"
                         placeholder="Informe sua senha"
                         autofocus
                     >
+                    <div class="invalid-feedback">
+                        <?= $errors['password']?? '' ?>
+                    </div>
                 </div>
+                
             </div>
 
             <div class="card-footer text-right" style="padding: 1rem">
@@ -43,5 +52,6 @@
             </div>
         
         </div>
+
     </form>
 </div>
