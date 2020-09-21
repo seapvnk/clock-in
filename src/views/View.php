@@ -22,7 +22,7 @@ class View
             }
         }
 
-        require_once VIEW_PATH . "/templates/base.php";
+        require_once TEMPLATE_PATH . "/base.php";
     }
 
 }
