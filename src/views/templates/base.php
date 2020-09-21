@@ -30,7 +30,7 @@
     <?php
       if (isset($templates) && is_array($templates)) {
         foreach ($templates as $template) {
-          require_once VIEW_PATH . "/templates/${template}.php";
+          require_once TEMPLATE_PATH . "/${template}.php";
         }
       }
     ?>
