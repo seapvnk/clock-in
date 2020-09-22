@@ -1,7 +1,7 @@
 <?php
 
 function loginController() {
-    loadModel('Login');
+    Loader::model('Login');
     $exception = null;
     
     if (count($_POST) > 0) {
@@ -9,12 +9,12 @@ function loginController() {
 
         try {
             $user = $login->checkLogin();
-            echo "Usuário {$user->name} logado!";
+            header("Location: day_records");
         } catch(AppException $e) {
             $exception = $e;
         }
     }
     
-    loadView('LoginView', $_POST + ['exception' => $exception]);
+    Loader::view('LoginView', $_POST + ['exception' => $exception]);
 
 }

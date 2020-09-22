@@ -1,6 +1,6 @@
 <?php
 
-loadModel('User');
+Loader::model('User');
 
 class Login extends Model {
 
