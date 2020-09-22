@@ -17,7 +17,7 @@ class Loader
     {
         $controller = "{$name}Controller";
         require_once CONTROLLER_PATH ."/{$controller}.php";
-        call_user_func($controller);
+        str_replace('/', '', $controller)();
     }
 }
 
