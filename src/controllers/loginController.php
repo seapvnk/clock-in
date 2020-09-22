@@ -9,7 +9,7 @@ function loginController() {
 
         try {
             $user = $login->checkLogin();
-            header("Location: day_records");
+            Utility::redirect('day');
         } catch(AppException $e) {
             $exception = $e;
         }
