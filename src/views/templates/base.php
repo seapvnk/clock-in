@@ -16,7 +16,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/now-ui-kit.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/globals.css">
 
     <?php if (isset($styles) && is_array($styles)): ?>
         <?php foreach ($styles as $style): ?>
@@ -30,7 +30,7 @@
     <?php
       if (isset($templates) && is_array($templates)) {
         foreach ($templates as $template) {
-          require_once TEMPLATE_PATH . "/${template}.php";
+          require_once TEMPLATE_PATH . "/$template.php";
         }
       }
     ?>
@@ -43,8 +43,7 @@
 
     <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
 
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+    <script src="assets/js/now-ui-kit.js" type="text/javascript"></script>
   </body>
 </html>
