@@ -15,4 +15,26 @@
             </li>
         </ul>
     </nav>
+    <div class="sidebar-widgets">
+        <div class="sidebar-widget">
+            <i class="fas fa-clock icon text-info"></i>
+            <div class="info">
+                <span class="main text-info">04:23</span>
+                <span class="label text-mute">Horas trabalhadas</span>
+            </div>
+        </div>
+
+        <div class="division my-3"></div>
+
+        <div class="sidebar-widget">
+            <i class="fas fa-stopwatch icon text-danger"></i>
+            <div class="info">
+                <span class="main text-danger">18:00</span>
+                <span class="label text-mute">Hora de saída</span>
+            </div>
+        </div>
+
+        <div class="my-3"></div>
+
+    </div>
 </aside>
