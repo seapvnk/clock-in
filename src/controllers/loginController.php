@@ -1,9 +1,8 @@
 <?php
 
 function loginController() {
-    session_start();
-    Session::validateLogin();
     Loader::model('Login');
+    Session::validateLogin();
     $exception = null;
     
     if (count($_POST) > 0) {
@@ -11,7 +10,7 @@ function loginController() {
 
         try {
             $user = $login->checkLogin();
-            $_SESSION['user'] = $user;
+            Session::state()->user = serialize($user);
             Utility::redirect('day');
         } catch(AppException $e) {
             $exception = $e;
