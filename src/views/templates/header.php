@@ -10,7 +10,13 @@
     <div class="spacer"></div>
     <div class="dropdown">
         <div class="dropdown-button">
-            <span class="ml-2">Usuário Mock</span>
+            <img 
+                class="avatar"
+                src="http://gravatar.com/avatar.php?gravatar_id=>
+                <?= md5(strtolower(trim($user->email))) ?>" 
+                alt=""
+            >
+            <span class="ml-2"><?= $user->name ?></span>
             <i class="fas fa-chevron-down mx-2"></i>
         </div>
         <div class="dropdown-content">
