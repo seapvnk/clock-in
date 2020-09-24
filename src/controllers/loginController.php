@@ -1,6 +1,8 @@
 <?php
 
 function loginController() {
+    session_start();
+    Session::validateLogin();
     Loader::model('Login');
     $exception = null;
     
@@ -9,6 +11,7 @@ function loginController() {
 
         try {
             $user = $login->checkLogin();
+            $_SESSION['user'] = $user;
             Utility::redirect('day');
         } catch(AppException $e) {
             $exception = $e;
