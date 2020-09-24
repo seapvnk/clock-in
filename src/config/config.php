@@ -26,9 +26,16 @@ require_once realpath(dirname(__FILE__) . '/Session.php');
 require_once realpath(MODEL_PATH . '/Model.php');
 require_once realpath(VIEW_PATH . '/View.php');
 
+// Classes that will be stored in session
+require_once realpath(MODEL_PATH . '/User.php');
+
+
 // Exception classes
 require_once realpath(EXCEPTION_PATH . '/AppException.php');
 require_once realpath(EXCEPTION_PATH . '/ValidationException.php');
 
 // Utility
 require_once realpath(UTIL_PATH);
+
+
+session_start();
