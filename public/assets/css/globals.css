@@ -27,7 +27,7 @@ header.header {
     background-color: #1976d2;
     align-items: center;
     z-index: 10;
-    box-shadow: 1px 1px 10px rgba(0,0,0, .2);
+    box-shadow: 2px 2px 10px rgba(0,0,0, .3);
 }
 
 header.header .logo {
@@ -110,8 +110,34 @@ header.header .dropdown-content li:hover a {
 
 }
 
-.hide-sidebar aside.sidebar {
+body.hide-sidebar aside.sidebar {
     display: none;
+}
+
+aside.sidebar .sidebar-widgets {
+    position: sticky;
+    bottom: 10px;
+}
+
+aside.sidebar .sidebar-widget {
+    display: flex;
+    align-items: center;
+}
+
+aside.sidebar .sidebar-widget .icon {
+    font-size: 3.5rem;
+    margin: 2px 10px 2px 0px;
+    width: 4rem;
+}
+
+aside.sidebar .sidebar-widget .info {
+    display: flex;
+    flex-direction: column;
+}
+
+aside.sidebar .sidebar-widget .info .main {
+    font-size: 2rem;
+    
 }
 
 aside.sidebar {
@@ -148,10 +174,50 @@ aside.sidebar .menu ul.nav-list li.nav-item a {
     text-decoration: none;
 }
 
-main.content {
-    grid-area: content;
+.card .bg-mute {
+    background-color: #eee;
 }
 
+.division {
+    width: 90%;
+    border: solid 1px #eee;
+    border-radius: 25%;
+    margin: auto;
+}
+
+
+main.content {
+    grid-area: content;
+    background-color: white;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+main.content .content-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+main.content .content-title i {
+    font-size: 3rem;
+}
+
+main.content .content-title h1 {
+    font-size: 1.8rem;
+    color: #444;
+    font-weight: 300;
+    margin: 0;
+}
+
+main.content .content-title h2 {
+    font-size: 1.2rem;
+    color: #999;
+    font-weight: 300;
+    margin: 0;
+}
 
 footer.footer {
     grid-area: footer;
@@ -162,4 +228,8 @@ footer.footer {
     justify-content: flex-end;
     padding-right: 1rem;
     font-size: 1rem;
+}
+
+.record {
+    font-size: 2.2rem;
 }
