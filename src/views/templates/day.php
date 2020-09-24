@@ -6,7 +6,7 @@
             <h2>Mantenha seu ponto consistente</h2>
         </div>
     </div>
-    <div class="card">
+    <div class="card shadow-none">
         <div class="card-header p-2">
             <h3 class="text-center">10 de janeiro de 2002</h3>
             <p class="mb-0 text-center">Os batimentos efetuados hoje</p>
