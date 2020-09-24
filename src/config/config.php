@@ -20,6 +20,8 @@ define('UTIL_PATH', realpath(dirname(__FILE__) . '/../utils/Utility.php'));
 // Classes
 require_once realpath(dirname(__FILE__) . '/Database.php');
 require_once realpath(dirname(__FILE__) . '/Loader.php');
+require_once realpath(dirname(__FILE__) . '/Session.php');
+
 
 require_once realpath(MODEL_PATH . '/Model.php');
 require_once realpath(VIEW_PATH . '/View.php');
