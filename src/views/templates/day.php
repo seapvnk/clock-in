@@ -3,10 +3,14 @@
         DayView::renderTitle('Registrar ponto', 
                              'Mantenha seu ponto consistente',
                              'check');
+
+        DayView::renderMessage();
+        
     ?>
+    
     <div class="card shadow-none">
         <div class="card-header p-2">
-            <h3 class="text-center">10 de janeiro de 2002</h3>
+            <h3 class="text-center"><?= $today ?></h3>
             <p class="mb-0 text-center">Os batimentos efetuados hoje</p>
         </div>
         <div class="card-body">

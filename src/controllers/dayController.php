@@ -3,5 +3,12 @@
 function dayController()
 {
     Session::validate();
-    Loader::view('DayView');
+
+    $date = (new DateTime())->getTimestamp();
+    $today = strftime('%d de %B de %Y', $date);
+
+
+    Loader::view('DayView', [
+        'today' => $today
+    ]);
 }
