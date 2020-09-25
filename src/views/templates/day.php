@@ -1,11 +1,9 @@
 <main class="content shadow-sm">
-    <div class="content-title mb-4">
-        <i class="fas fa-check mr-2"></i>
-        <div>
-            <h1>Registrar ponto</h1>
-            <h2>Mantenha seu ponto consistente</h2>
-        </div>
-    </div>
+    <?php 
+        DayView::renderTitle('Registrar ponto', 
+                             'Mantenha seu ponto consistente',
+                             'check');
+    ?>
     <div class="card shadow-none">
         <div class="card-header p-2">
             <h3 class="text-center">10 de janeiro de 2002</h3>
