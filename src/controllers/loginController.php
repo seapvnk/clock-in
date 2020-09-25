@@ -17,6 +17,6 @@ function loginController() {
         }
     }
     
-    Loader::view('LoginView', $_POST + ['exception' => $exception]);
+    Loader::view('Login', $_POST + ['exception' => $exception]);
 
 }

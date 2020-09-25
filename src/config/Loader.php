@@ -9,6 +9,7 @@ class Loader
     
     public static function view($name, $params = [])
     {
+        $name .= 'View';
         require_once VIEW_PATH . "/{$name}.php";
         $name::render($params);
     }

@@ -8,7 +8,7 @@ function dayController()
     $today = strftime('%d de %B de %Y', $date);
 
 
-    Loader::view('DayView', [
+    Loader::view('Day', [
         'today' => $today
     ]);
 }
