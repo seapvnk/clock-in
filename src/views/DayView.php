@@ -1,14 +1,9 @@
 <?php
 
-class DayView extends View
+class DayView extends AppView
 {
     protected static $styles = [];
     protected static $templates = ['header', 'left', 'day', 'footer'];
-
-    public static function render($params = [])
-    {
-        parent::render($params + ['user' => unserialize(Session::state()->user)]);
-    }
 
 }
 
