@@ -25,4 +25,9 @@ class View
         require_once TEMPLATE_PATH . "/base.php";
     }
 
+    public static function renderMessage()
+    {
+        require_once TEMPLATE_PATH . "/messages.php";
+    }
+
 }

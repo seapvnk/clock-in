@@ -2,6 +2,9 @@
 
 $errors = [];
 $message = null;
+$exception = $exception?? null;
+
+
 if ($exception) {
     $message = [
         'type' => 'error',
