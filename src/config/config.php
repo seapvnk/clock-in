@@ -25,6 +25,8 @@ require_once realpath(dirname(__FILE__) . '/Session.php');
 
 require_once realpath(MODEL_PATH . '/Model.php');
 require_once realpath(VIEW_PATH . '/View.php');
+require_once realpath(VIEW_PATH . '/AppView.php');
+
 
 // Classes that will be stored in session
 require_once realpath(MODEL_PATH . '/User.php');
