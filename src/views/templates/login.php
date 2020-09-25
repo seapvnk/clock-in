@@ -1,6 +1,6 @@
 <div class="container login-container">
 
-    <?php require_once TEMPLATE_PATH . "/messages.php" ?>
+    <?php require_once TEMPLATE_PATH . "/messages.php"; ?>
 
     <form action="" method="post">
         <div class="card login-card">
