@@ -47,7 +47,42 @@ function getDayTemplateByOdds($regularRate, $extraRate, $lazyRate)
     }
 }
 
+
+Loader::model('WorkingHours');
+
+Database::execute('DELETE FROM working_hours');
+Database::execute('DELETE FROM users WHERE id > 5');
+
+function populateWorkingHours($userId, $initialDate, $regularRate, $extraRate, $lazyRate)
+{
+    $currentDate = $initialDate;
+    $yersterday = new Datetime();
+    $yersterday->modify('-1 day');
+
+    $columns = [
+        'user_id' => $userId,
+        'work_date' => $currentDate,
+    ];
+
+    while (Utility::isBefore($currentDate, $yersterday)) {
+        if (!Utility::isWeekend($currentDate)) {
+            $template = getDayTemplateByOdds($regularRate, $extraRate, $lazyRate);
+            $columns = array_merge($columns, $template);
+            $workingHours = new WorkingHours($columns);
+            $workingHours->insert();
+        }
+        $currentDate = Utility::getNextDay($currentDate)->format('Y-m-d');
+        $columns['work_date'] = $currentDate;
+    }
+}
+
+
 function seedController()
 {
-    print_r(getDayTemplateByOdds(90, 5, 5));
+
+    $lastMonth = strtotime('first day of last month');
+    populateWorkingHours(1, date('Y-m-1'), 70, 20, 10);
+    populateWorkingHours(3, date('Y-m-d', $lastMonth), 20, 75, 5);
+    populateWorkingHours(4, date('Y-m-d', $lastMonth), 20, 10, 70);
+
 }
