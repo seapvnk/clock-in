@@ -79,6 +79,20 @@ class Model
 
     }
 
+    public function update()
+    {
+        $sql = "UPDATE " . static::$table . " SET ";
+        foreach (static::$columns as $column) {
+            $sql .= " ${column} = " . static::format($this->$column) . ",";
+        }
+
+        $sql[strlen($sql) - 1] = ' ';
+        $sql .= "WHERE id = {$this->id}";
+
+        Database::execute($sql);
+    }
+
+
     private static function filters($filters)
     {
         $sql = '';
