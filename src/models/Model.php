@@ -13,7 +13,7 @@ class Model
 
     public function __get($key)
     {
-        return $this->values[$key];
+        return $this->values[$key]?? null;
     }
 
     public function __set($key, $value)
@@ -25,7 +25,7 @@ class Model
     {
         if ($arr) {
             foreach ($arr as $key => $value) {
-                $this->$key=  $value;
+                $this->$key = $value;
             }
         }
     }
@@ -49,7 +49,6 @@ class Model
     {
         $class = get_called_class();
         $result =  static::select($filters, $columns);
-
         return $result? new $class($result->fetch_assoc()) : null;
     }
 
@@ -60,12 +59,24 @@ class Model
                 . static::filters($filters);
 
         $result = Database::query($sql);
-        if ($result->num_rows === 0) {
-            return null;
-        }
-
 
         return $result;
+    }
+
+    public function insert()
+    {
+        $sql = "INSERT INTO " . static::$table .  " ("
+               . implode(",", static::$columns) . " ) VALUES (";
+        
+        foreach (static::$columns as $column) {
+            $sql .= static::format($this->$column) . ",";
+        }
+
+        $sql[strlen($sql) - 1] = ')';
+        $id = Database::execute($sql);
+        
+        $this->id = $id; 
+
     }
 
     private static function filters($filters)
@@ -78,8 +89,8 @@ class Model
                 $sql .= " AND ${column} = " . static::format($value);
             }
         }
-
-       return $sql;
+        
+        return $sql;
     }
 
     private static function format($value)
