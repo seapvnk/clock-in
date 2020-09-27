@@ -68,6 +68,13 @@ class Utility
         return (new DateTimeImmutable($intarval->format('%H:%i:%s')));
     }
 
+    public static function getSecondsFromDateInterval($interval)
+    {
+        $d1 = new DateTimeImmutable();
+        $d2 = $d1->add($interval);
+        return $d2->getTimestamp() - $d1->getTimestamp();
+    }
+
     public static function getDateFromString($str)
     {
         return DateTimeImmutable::createFromFormat('h:i:s', $str);
