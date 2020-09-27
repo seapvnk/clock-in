@@ -7,6 +7,11 @@ class Session {
         return new Session;
     }
 
+    public static function stateRemove($state)
+    {
+        self::state()->$state = null;
+    }
+
     public function __set($name, $value) 
     {
         $_SESSION[$name] = $value;
