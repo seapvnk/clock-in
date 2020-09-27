@@ -1,8 +1,13 @@
 <?php
 
-$errors = [];
 $message = null;
+$errors = [];
 $exception = $exception?? null;
+
+if (unserialize(Session::state()->message)) {
+    $message = unserialize(Session::state()->message);
+    Session::stateRemove('message');
+}
 
 
 if ($exception) {
@@ -19,11 +24,10 @@ if ($exception) {
 
 
 
-$alertType = 'info';
+$alertType = 'success';
 if ($message && $message['type'] === 'error') {
     $alertType = 'danger';
 }
-
 
 ?>
 

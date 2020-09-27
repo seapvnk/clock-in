@@ -24,10 +24,22 @@
             </div>
         </div>
         <div class="card-footer bg-mute d-flex justify-content-end">
-            <a href="?" class="btn btn-success btn-lg m-2">
+            <a href="clockin" class="btn btn-success btn-lg m-2">
                 <i class="fas fa-check mr-2"></i>
                 Bater o ponto
             </a>
         </div>
+
+        <form class="mt-5" action="clockin" method="POST">
+            <div class="input-group no-border d-flex ">
+                <input 
+                    type="text" 
+                    name="forcedTime" 
+                    class="form-control" 
+                    placeholder="Informe a hora para simular o batimento"
+                >
+                <button class="btn btn-danger ml-3 btn-lg">Simular ponto</button>
+            </div>
+        </form>
     </div>
 </main>
