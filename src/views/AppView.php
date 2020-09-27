@@ -7,7 +7,19 @@ class AppView extends View
 
     public static function render($params = [])
     {
-        parent::render($params + ['user' => unserialize(Session::state()->user)]);
+
+        Loader::model('WorkingHours');
+
+        $user = unserialize(Session::state()->user);
+        $workingHours = WorkingHours::loadFromUserAndDate($user->id, date('Y-m-d'));
+
+        parent::render($params + [
+            'user' => $user,
+            'workingHours' => $workingHours,
+            'workedInterval' => $workingHours->getWorkedInterval()->format('%H:%I:%S'),
+            'exitTime' => $workingHours->getExitTime()->format('H:i:s'),
+            'activeClock' => $workingHours->getActiveClock(),
+        ]);
     }
 
 
