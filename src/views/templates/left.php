@@ -5,7 +5,7 @@
                 <a href="day"><i class="fas fa-check mr-2"></i> Registrar ponto</a>
             </li>
             <li class="nav-item">
-                <a href=""><i class="far fa-calendar mr-2"></i> Relatório mensal</a>
+                <a href="month"><i class="far fa-calendar mr-2"></i> Relatório mensal</a>
             </li>
             <li class="nav-item">
                 <a href=""><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
