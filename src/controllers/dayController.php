@@ -16,6 +16,5 @@ function dayController()
 
     Loader::view('Day', [
         'today' => $today,
-        'records' => $records,
     ]);
 }
