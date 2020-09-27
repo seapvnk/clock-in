@@ -36,4 +36,40 @@ class Utility
 
         return $inputDate;
     }
+
+    public static function addMessage($msg, $type)
+    {
+        Session::state()->message = serialize([
+            'type' => $type,
+            'message' => $msg,
+        ]);
+    }
+
+    public static function sumIntervals($interval1, $interval2)
+    {
+        $date = new DateTime('00:00:00');
+        $date->add($interval1);
+        $date->add($interval2);
+
+        return (new DateTime('00:00:00'))->diff($date);
+    }
+
+    public static function subtractIntervals($interval1, $interval2)
+    {
+        $date = new DateTime('00:00:00');
+        $date->add($interval1);
+        $date->sub($interval2);
+
+        return (new DateTime('00:00:00'))->diff($date);
+    }
+
+    public static function getDateFromInterval($interval)
+    {
+        return (new DateTimeImmutable($intarval->format('%H:%i:%s')));
+    }
+
+    public static function getDateFromString($str)
+    {
+        return DateTimeImmutable::createFromFormat('h:i:s', $str);
+    }
 }
