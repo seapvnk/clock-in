@@ -64,6 +64,7 @@ class WorkingHours extends Model
         }
         $this->$timeColumn = $time;
         $this->worked_time = Utility::getSecondsFromDateInterval($this->getWorkedInterval());
+
         if($this->id) {
             $this->update();
         } else {
@@ -112,6 +113,36 @@ class WorkingHours extends Model
         }
     }
 
+    public function getBalance()
+    {
+        if (!$this->time1 && !Utility::isPastWorkday($this->work_date)) return '';
+        if ($this->worked_time == Utility::DAILY_TIME) return '';
+
+        $balance = $this->worked_time - Utility::DAILY_TIME;
+        $sign = $balance >= 0? '+' : '-';
+        return $sign . Utility::getTimeStringFromSeconds(abs($balance));
+    }
+
+    public static function getMonthlyReport($userId, $date)
+    {
+        $registries = [];
+        $startDate = Utility::getFirstDayOfMonth($date)->format('Y-m-d');
+        $endDate = Utility::getLastDayOfMonth($date)->format('Y-m-d');
+        
+        $result = self::select([
+            'user_id' => $userId,
+            'raw' => "work_date between '{$startDate}' AND '{$endDate}'" ,
+        ]);
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $registries[$row['work_date']] = new WorkingHours($row);
+            }
+        }
+
+        return $registries;
+    }
+
     private function getTimes()
     {
         $times = [];
@@ -123,6 +154,5 @@ class WorkingHours extends Model
 
         return $times;
     }
-
 
 }
