@@ -92,6 +92,12 @@ class Model
         Database::execute($sql);
     }
 
+    public function count($filters = [])
+    {
+        $result = static::select($filters, 'COUNT(*) AS COUNT');
+        return $result->fetch_assoc()['COUNT'];
+    }
+
 
     private static function filters($filters)
     {
