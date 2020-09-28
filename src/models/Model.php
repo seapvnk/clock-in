@@ -100,7 +100,13 @@ class Model
             $sql .= "WHERE 1 = 1";
 
             foreach($filters as $column => $value) {
-                $sql .= " AND ${column} = " . static::format($value);
+                if ($column == 'raw') {
+                    $sql .= " AND ${value}";
+
+                } else {
+                    $sql .= " AND ${column} = " . static::format($value);
+
+                }
             }
         }
         

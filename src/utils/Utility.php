@@ -79,4 +79,36 @@ class Utility
     {
         return DateTimeImmutable::createFromFormat('h:i:s', $str);
     }
+
+    public static function getLastDayOfMonth($date)
+    {
+        $time = self::getDateAsDateTime($date)->getTimestamp();
+        return new DateTime(date('Y-m-t', $time));
+    }
+
+    public static function getFirstDayOfMonth($date)
+    {
+        $time = self::getDateAsDateTime($date)->getTimestamp();
+        return new DateTime(date('Y-m-1', $time));       
+    }
+
+    public static function isPastWorkday($date)
+    {
+        return !self::isWeekend($date) && self::isBefore($date, new DateTime());
+    }
+
+    public static function getTimeStringFromSeconds($seconds)
+    {
+        $h = intdiv($seconds, 3600);
+        $m = intdiv($seconds % 3600, 60);
+        $s = $seconds - ($h * 3600)  - ($m * 60);
+
+        return sprintf("%02d:%02d:%02d", $h, $m, $s);
+    }
+
+    public static function formatDateWithLocale($date, $pattern)
+    {
+        $time = self::getDateAsDateTime($date)->getTimestamp();
+        return strftime($pattern, $time);
+    }
 }
