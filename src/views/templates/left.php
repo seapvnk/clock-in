@@ -8,7 +8,7 @@
                 <a href="month"><i class="far fa-calendar mr-2"></i> Relatório mensal</a>
             </li>
             <li class="nav-item">
-                <a href=""><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
+                <a href="manage"><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
             </li>
             <li class="nav-item">
                 <a href=""><i class="fas fa-users mr-2"></i> Usuários</a>

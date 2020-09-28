@@ -30,7 +30,7 @@
                     </select>
                 </div>
                 <div class="col-2">
-                    <button  style="height: 40px" class="btn btn-info btn-round"><i class="fas fa-search"></i></button>
+                    <button  style="height: 40px; width: 40px" class="p-2 btn btn-info btn-round"><i class="fas fa-search"></i></button>
                 </div>
             </div>    
         </form>
