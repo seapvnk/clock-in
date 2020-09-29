@@ -2,7 +2,21 @@
 
 function usersController() {
 
-    Session::validate();
+    Session::validate(true);
+
+    $exception = null;
+    if (isset($_GET['delete'])) {
+        try {
+            User::deleteById($_GET['delete']);
+            Utility::addMessage("Usuário excluido com sucesso.", 'success');
+        } catch (Exception $e) {
+            if (stripos($e->getMessage(), 'FOREIGN KEY')) {
+                Utility::addMessage("Não é possível excluir usuário com registros de ponto.", 'error');
+            } else {
+                $exception = $e;
+            }
+        }
+    }
 
     $users = User::all();
     foreach ($users as $user) {
@@ -12,5 +26,6 @@ function usersController() {
 
     Loader::view('Users', [
         'users' => $users,
+        'exception' => $exception,
     ]);
 }
