@@ -14,16 +14,14 @@
             <p class="title">Qtde de funcionários</p>
             <h3 class="value"><?= $activeUsersCount ?></h3>
         </div>
-    </div>
 
-    <div class="summary-box bg-danger">
+        <div class="summary-box bg-danger">
             <i class="fas fa-bed"></i>
             <p class="title">Faltas</p>
             <h3 class="value"><?= count($absentUsers) ?></h3>
         </div>
-    </div>
 
-    <div class="summary-box bg-success">
+        <div class="summary-box bg-success">
             <i class="far fa-hourglass"></i>
             <p class="title">Horas no mês</p>
             <h3 class="value"><?= $hoursInMonth ?></h3>
@@ -31,10 +29,10 @@
     </div>
 
     <?php if (count($absentUsers) > 0 || 1): ?>
-        <div class="card mt-4 p-4 shadow-none">
-            <div class="card-header">
-                <h4 class="card-title">Faltosos do dia</h4>
-                <p class="card-category">Relação dos funcionários que ainda não bateram o ponto</p>
+        <div class="card mt-4 p-1 shadow-none">
+            <div class="card-header border text-center">
+                <h4 class="card-title mt-1">Faltosos do dia</h4>
+                <p class="card-category mb-0">Relação dos funcionários que ainda não bateram o ponto</p>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-hover">

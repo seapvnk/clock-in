@@ -239,3 +239,54 @@ footer.footer {
 .record {
     font-size: 1.5rem;
 }
+
+.summary-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.summary-box {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    flex-basis: 100%;
+}
+
+.summary-box i {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+}
+
+.summary-box .title {
+    font-size: 1rem;
+}
+
+.summary-box .value {
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .summary-box {
+        flex-basis: 32%;
+        margin: 10px 5px;
+    }
+
+    .summary-box i {
+        font-size: 3.5rem;
+        margin-top: 2rem;
+    }
+    
+    .summary-box .title {
+        font-size: 1.5rem;
+    }
+    
+    .summary-box .value {
+        font-size: 2rem;
+    }
+}
+
