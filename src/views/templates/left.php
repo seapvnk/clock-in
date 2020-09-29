@@ -11,7 +11,7 @@
                 <a href="manage"><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
             </li>
             <li class="nav-item">
-                <a href=""><i class="fas fa-users mr-2"></i> Usuários</a>
+                <a href="users"><i class="fas fa-users mr-2"></i> Usuários</a>
             </li>
         </ul>
     </nav>
