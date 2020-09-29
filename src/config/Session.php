@@ -22,11 +22,15 @@ class Session {
         return $_SESSION[$name]?? null;
     }
 
-    public static function validate()
+    public static function validate($requireAdmin = false)
     {
         $user = $_SESSION['user']?? null;
         if (!isset($user)) {
             Utility::redirect('login');
+            exit();
+        } elseif ($requireAdmin) {
+            Utility::addMessage('Acesso negado', 'error');
+            Utility::redirect('day');
             exit();
         }
     }
