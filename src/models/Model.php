@@ -6,9 +6,9 @@ class Model
     protected static $columns = [];
     protected $values = [];
 
-    function __construct($arr)
+    function __construct($arr, $sanitize = true)
     {
-        $this->load($arr);
+        $this->load($arr, $sanitize);
     }
 
     public function __get($key)
@@ -21,12 +21,28 @@ class Model
         $this->values[$key] = $value;
     }
 
-    public function load($arr)
+    public function getValues()
+    {
+        return $this->values;
+    }
+
+    public function load($arr, $sanitize = true)
     {
         if ($arr) {
+            $conn = Database::getConnection();
             foreach ($arr as $key => $value) {
-                $this->$key = $value;
+                $cleanValue = $value;
+
+                if($sanitize && $cleanValue) {
+                    $cleanValue = strip_tags(trim($cleanValue));
+                    $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES);
+                    $cleanValue = mysqli_real_escape_string($conn, $cleanValue);
+                }
+
+                $this->$key = $cleanValue;
             }
+            $conn->close();
+
         }
     }
 
@@ -73,6 +89,7 @@ class Model
         }
 
         $sql[strlen($sql) - 1] = ')';
+        
         $id = Database::execute($sql);
         
         $this->id = $id; 
@@ -119,12 +136,23 @@ class Model
         return $sql;
     }
 
+    public function delete()
+    {
+        self::deleteById($this->id);
+    }
+
+    public static function deleteById($id)
+    {
+        $sql = "DELETE FROM " . static::$table . " WHERE id = '{$id}'";
+        Database::execute($sql);
+    }
+
     private static function format($value)
     {
         if (is_null($value)) {
             return "null";
         } elseif (is_string($value)) {
-            return "'${value}'";
+            return "'{$value}'";
         }
         
         return $value;
