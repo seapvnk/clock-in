@@ -125,20 +125,20 @@ class WorkingHours extends Model
 
     public static function getAbsentUsers()
     {
-        $today = (new DateTime())->format('Y-m-d');
+        $today = new DateTime();
         $result = Database::query("
-            SELECT NAME FORM users
-            WHERE  end_date is NULL
+            SELECT name FROM users
+            WHERE end_date is NULL
             AND id NOT IN (
                 SELECT user_id FROM working_hours
-                WHERE  work_date = '{$today}'
-                AND    time1 IS NOT NULL
+                WHERE work_date = '{$today->format('Y-m-d')}'
+                AND time1 IS NOT NULL
             )
         ");
 
         $absentUsers = [];
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
                 array_push($absentUsers, $row['name']);
             }
         }
