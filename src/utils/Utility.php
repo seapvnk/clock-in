@@ -111,4 +111,5 @@ class Utility
         $time = self::getDateAsDateTime($date)->getTimestamp();
         return strftime($pattern, $time);
     }
+
 }
