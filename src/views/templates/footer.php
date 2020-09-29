@@ -6,5 +6,24 @@
 
 </footer>
 
+<script src="assets/js/core/jquery.min.js" ></script>
+<script src="assets/js/core/popper.min.js" ></script>
+<script src="assets/js/core/bootstrap.min.js" ></script>
+<script src="assets/js/plugins/bootstrap-switch.js" ></script>
+
+<script>
+
+// switch
+$('.bootstrap-switch').each(function(){
+    $this = $(this);
+    data_on_label = $this.data('on-label') || '';
+    data_off_label = $this.data('off-label') || '';
+
+    $this.bootstrapSwitch({
+        onText: data_on_label,
+        offText: data_off_label
+    });
+});
+</script>
 
 <script src="assets/js/app.js" ></script>

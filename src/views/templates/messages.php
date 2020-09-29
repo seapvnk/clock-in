@@ -2,6 +2,7 @@
 
 $message = null;
 $errors = [];
+
 $exception = $exception?? null;
 
 if (unserialize(Session::state()->message)) {
@@ -22,15 +23,12 @@ if ($exception) {
 }
 
 
-
-
 $alertType = 'success';
 if ($message && $message['type'] === 'error') {
     $alertType = 'danger';
 }
 
 ?>
-
 <?php if ($message): ?>
     <div
         class="alert alert-<?= $alertType ?>" 

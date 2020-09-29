@@ -25,10 +25,18 @@
                     <td><?= $user->start_date ?></td>
                     <td><?= $user->end_date ?></td>
                     <td>
-                        <a href="saveUser?update=<?= $user->id ?>" style="font-size: 12px" class="p-2 btn-sm btn btn-warning rounded-circle">
+                        <a 
+                            href="saveUser?update=<?= $user->id ?>"
+                            style="font-size: 16px; background: transparent"
+                            class="text-warning p-2 btn-sm btn btn-none shadow-sm rounded-circle"
+                        >
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="?delete=<?= $user->id ?>" style="font-size: 12px" class="p-2 btn-sm btn btn-danger rounded-circle">
+                        <a 
+                            href="?delete=<?= $user->id ?>"
+                            style="font-size: 16px; background: transparent"
+                            class="text-danger p-2 btn-sm btn btn-none shadow-sm rounded-circle"
+                        >
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>

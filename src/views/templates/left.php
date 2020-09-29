@@ -7,12 +7,14 @@
             <li class="nav-item">
                 <a href="month"><i class="far fa-calendar mr-2"></i> Relatório mensal</a>
             </li>
-            <li class="nav-item">
-                <a href="manage"><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
-            </li>
-            <li class="nav-item">
-                <a href="users"><i class="fas fa-users mr-2"></i> Usuários</a>
-            </li>
+            <?php if ($user->is_admin): ?>
+                <li class="nav-item">
+                    <a href="manage"><i class="fas fa-chart-bar mr-2"></i> Relatório gerencial</a>
+                </li>
+                <li class="nav-item">
+                    <a href="users"><i class="fas fa-users mr-2"></i> Usuários</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="sidebar-widgets">

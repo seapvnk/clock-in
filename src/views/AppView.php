@@ -13,13 +13,15 @@ class AppView extends View
         $user = unserialize(Session::state()->user);
         $workingHours = WorkingHours::loadFromUserAndDate($user->id, date('Y-m-d'));
 
-        parent::render($params + [
+        $params = array_merge($params, [
             'user' => $user,
             'workingHours' => $workingHours,
             'workedInterval' => $workingHours->getWorkedInterval()->format('%H:%I:%S'),
             'exitTime' => $workingHours->getExitTime()->format('H:i:s'),
             'activeClock' => $workingHours->getActiveClock(),
         ]);
+
+        parent::render( $params );
     }
 
 

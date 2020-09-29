@@ -4,6 +4,7 @@ class View
 {
     protected static $styles = [];
     protected static $templates = [];
+    protected static $params = [];
 
     public static function render($params = [])
     {
@@ -12,6 +13,7 @@ class View
 
         $styles = $currentView::$styles;
         $templates = $currentView::$templates;
+        self::$params = $params;
 
         // initialize variables used in templates
         if (count($params) > 0) {
@@ -27,6 +29,7 @@ class View
 
     public static function renderMessage()
     {
+        $exception = self::$params['exception']?? null;
         require_once TEMPLATE_PATH . "/messages.php";
     }
 
