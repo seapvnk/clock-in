@@ -24,11 +24,12 @@ class Session {
 
     public static function validate($requireAdmin = false)
     {
-        $user = $_SESSION['user']?? null;
+        $user = unserialize(Session::state()->user)?? null;
+
         if (!isset($user)) {
             Utility::redirect('login');
             exit();
-        } elseif ($requireAdmin) {
+        } elseif ($requireAdmin && !$user->is_admin) {
             Utility::addMessage('Acesso negado', 'error');
             Utility::redirect('day');
             exit();
