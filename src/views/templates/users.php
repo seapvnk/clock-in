@@ -33,7 +33,7 @@
                             <i class="fas fa-edit"></i>
                         </a>
                         <a 
-                            href="?delete=<?= $user->id ?>"
+                            href="confirmDelete?delete=<?= $user->id ?>"
                             style="font-size: 16px; background: transparent"
                             class="text-danger p-2 btn-sm btn btn-none shadow-sm rounded-circle"
                         >
