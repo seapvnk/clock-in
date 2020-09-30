@@ -9,22 +9,28 @@
     ?>
 
     <div class="summary-boxes">
-        <div class="summary-box bg-info">
+        <div class="summary-box bg-info shadow-sm">
             <i class="fas fa-users"></i>
-            <p class="title">Qtde de funcionários</p>
-            <h3 class="value"><?= $activeUsersCount ?></h3>
+            <div>
+                <p class="title">Funcionários</p>
+                <h3 class="value"><?= $activeUsersCount ?></h3>
+            </div>
         </div>
 
-        <div class="summary-box bg-danger">
+        <div class="summary-box bg-danger shadow-sm">
             <i class="fas fa-bed"></i>
-            <p class="title">Faltas</p>
-            <h3 class="value"><?= count($absentUsers) ?></h3>
+            <div>
+                <p class="title">Faltas</p>
+                <h3 class="value"><?= count($absentUsers) ?></h3>
+            </div>
         </div>
 
         <div class="summary-box bg-success">
-            <i class="far fa-hourglass"></i>
-            <p class="title">Horas no mês</p>
-            <h3 class="value"><?= $hoursInMonth ?></h3>
+            <i class="fas fa-clock"></i>
+            <div>
+                <p class="title">Horas no mês</p>
+                <h3 class="value"><?= $hoursInMonth ?></h3>
+            </div>
         </div>
     </div>
 

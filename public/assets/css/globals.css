@@ -249,25 +249,33 @@ footer.footer {
 .summary-box {
     display: flex;
     flex-grow: 1;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
     color: white;
     border-radius: 5px;
     margin: 10px;
     flex-basis: 100%;
+    min-height: 200px;
 }
 
 .summary-box i {
-    font-size: 3.5rem;
+    font-size: 6rem;
     margin-top: 2rem;
+    color: rgba(0, 0, 0, .3);
+    margin-left: -6rem;
 }
 
 .summary-box .title {
+    color: rgba(255, 255, 255, .7);
     font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 1s;
 }
 
 .summary-box .value {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -277,15 +285,7 @@ footer.footer {
     }
 
     .summary-box i {
-        font-size: 3.5rem;
         margin-top: 2rem;
     }
     
-    .summary-box .title {
-        font-size: 1.5rem;
-    }
-    
-    .summary-box .value {
-        font-size: 2rem;
-    }
 }
