@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header bg-primary">
     <div class="logo">
         <i class="fas fa-clock"></i>
         Clock-in!
