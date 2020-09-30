@@ -44,16 +44,9 @@ class WorkingHours extends Model
     public function getActiveClock()
     {
         $nextTime = $this->getNextTime();
-        switch ($nextTime) {
-            case 'time1':
-            case 'time3':
-                return 'exitTime';
-            case 'time2':
-            case 'time4':
-                return 'workedInterval';
-            default:
-                return null;
-        }
+        if      (in_array($nextTime, ['time1', 'time3'])) return 'exitTime';
+        elseif  (in_array($nextTime, ['time2', 'time4'])) return 'workedInterval';
+        return null;
     }
 
     public function clockin($time)
