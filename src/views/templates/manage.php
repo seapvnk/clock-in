@@ -36,7 +36,7 @@
 
     <?php if (count($absentUsers) > 0 || 1): ?>
         <div class="card mt-4 p-1 shadow-none">
-            <div class="card-header border text-center">
+            <div class="card-header  text-center">
                 <h4 class="card-title mt-1">Faltosos do dia</h4>
                 <p class="card-category mb-0">Relação dos funcionários que ainda não bateram o ponto</p>
             </div>
